@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Cashier Register App</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Cashier Register</h2>
+
+      <div class="inputs-box">
+        <div class="">
+          <input type="text" id="productName" placeholder="Product name..." />
+        </div>
+        <div class="">
+          <input
+            type="number"
+            id="openingStock"
+            placeholder="Opening stock..."
+          />
+        </div>
+        <div class="">
+          <input type="number" id="rate" placeholder="Rate..." />
+        </div>
+      </div>
+      <div class="input-buttons">
+        <div class="">
+          <button onclick="addItem()" class="btn">Add Item</button>
+          <button onclick="clearTable()" class="btn">Clear Table</button>
+          <button onclick="saveAsPDF()" class="btn">Save as PDF</button>
+        </div>
+      </div>
+
+      <div id="errorContainer"></div>
+
+      <div class="table-wrapper">
+        <table id="registerTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Product Name</th>
+              <th>Opening Stock</th>
+              <th>Closing Stock</th>
+              <th>Quantity</th>
+              <th>Rate</th>
+              <th>Subtotal</th>
+              <th>Credit</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot>
+            <tr>
+              <td>Total</td>
+              <td colspan="5">Total</td>
+              <td id="totalAmount" colspan="2">0</td>
+              <td></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="summary-container">
+        <h2>Summary</h2>
+        <input type="date" id="summaryDate" />
+
+        <button onclick="generateSummary()" class="btn sum">
+          Generate Summary
+        </button>
+        <button onclick="saveAs()" id="savePdfButton" class="btn">
+          Save Summary Tables to PDF
+        </button>
+
+        <div id="summaryTableWrapper"></div>
+      </div>
+    </div>
+    <script src="jspdf.umd.min.js"></script>
+    <script src="html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
